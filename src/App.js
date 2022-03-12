@@ -1,9 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import UserForm from './components/registration/UserForm';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Thrive Planning</h1>
+    <div>
+      <h1 className='text-center'>Thrive Planning</h1>
+      <UserForm />
     </div>
   );
 }
