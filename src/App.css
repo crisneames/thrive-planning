@@ -3,5 +3,19 @@
 }
 
 body {
-  background-color: #03BFF4;
+  background: linear-gradient(45deg,#00AEEF 0%, #88D3F5 80%);
+  background-image: url('../public/backgroundImage.png');
+  height: 100%;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  padding-top: 10px;
+  color: #7f7d7d;
+  margin: 0;
+}
+.forgot-password a {
+  color: #167bff;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import ThrivPlanControl from './ThrivPlanControl';
+import { Button } from 'react-bootstrap';
 
 export default function ThrivPlanForm() {
   const checkboxOptionsPhysical = [
@@ -168,7 +169,7 @@ export default function ThrivPlanForm() {
               name='checkboxOption'
               options={checkboxOptionsPhysical}
             />
-            <button type='submit'>Next</button>
+            <Button type='submit'>Next</Button>
 
             <ThrivPlanControl
               control='checkbox'
@@ -176,7 +177,7 @@ export default function ThrivPlanForm() {
               name='checkboxOption'
               options={checkboxOptionsMental}
             />
-            <button type='submit'>Next</button>
+            <Button type='submit'>Next</Button>
 
             <ThrivPlanControl
               control='checkbox'
@@ -184,7 +185,7 @@ export default function ThrivPlanForm() {
               name='checkboxOption'
               options={checkboxOptionsEmotional}
             />
-            <button type='submit'>Next</button>
+            <Button type='submit'>Next</Button>
 
             <ThrivPlanControl
               control='checkbox'
@@ -192,7 +193,7 @@ export default function ThrivPlanForm() {
               name='checkboxOption'
               options={checkboxOptionsSpiritual}
             />
-            <button type='submit'>Next</button>
+            <Button type='submit'>Next</Button>
             <p>
               Coping Skills - Self-loving behavoirs that are healthy, gentle,
               and kind. Activities to be practiced and mastered as tools to use
@@ -206,7 +207,7 @@ export default function ThrivPlanForm() {
               name='checkboxOption'
               options={checkboxOptionsCopingSkills}
             />
-            <button type='submit'>Next</button>
+            <Button type='submit'>Next</Button>
           </Form>
         </div>
       )}
