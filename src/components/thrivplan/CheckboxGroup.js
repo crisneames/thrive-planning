@@ -5,27 +5,31 @@ import { Field, ErrorMessage } from 'formik';
 function CheckboxGroup(props) {
   const { label, name, options, ...rest } = props;
   return (
-    <div className='' style={{ display: 'flex' }}>
-      <label>{label}</label>
+    <div style={{ display: 'flex' }}>
+      <label className='px-2'><b>{label}:</b></label>
       <Field name={name}>
         {({ field }) => {
           return options.map((option) => {
             return (
-              <React.Fragment key={option.key}>
-                <input
-                  type='checkbox'
-                  id={option.value}
-                  {...field}
-                  {...rest}
-                  value={option.value}
-                  checked={field.value.includes(option.value)}
-                />
-                <label htmlFor={option.value}>{option.key}</label>
-              </React.Fragment>
+              <div style={{border: '1px solid black'}}>
+                <React.Fragment key={option.key}>
+                  <input
+                    style={{width: '100%'}}
+                    type='checkbox'
+                    id={option.value}
+                    {...field}
+                    {...rest}
+                    value={option.value}
+                    checked={field.value.includes(option.value)}
+                  />
+                  <label className='px-2' style={{ textAlign: 'left' }} htmlFor={option.value}>{option.key}</label>
+                </React.Fragment>
+              </div>
             );
           });
         }}
       </Field>
+      <br />
       {/* <ErrorMessage component={TextError} name={name} /> */}
     </div>
   );

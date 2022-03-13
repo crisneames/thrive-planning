@@ -6,31 +6,26 @@ import { Button } from 'react-bootstrap';
 
 export default function ThrivPlanForm() {
   const checkboxOptionsPhysical = [
-    { key: 'Physical', value: '' },
-    { key: 'smell of _____', value: 'cSmellOf' },
-    { key: 'taste of _____', value: 'CTasteOf' },
-    { key: 'seeing _____', value: 'cSeeing' },
-    { key: 'touching _____', value: 'cTouching' },
+    { key: 'smell of', value: 'cSmellOf' },
+    { key: 'taste of', value: 'CTasteOf' },
+    { key: 'seeing', value: 'cSeeing' },
+    { key: 'touching', value: 'cTouching' },
     { key: 'dizzy or lightheaded', value: 'cDizzy' },
-    { key: '__________', value: 'cBlank01' },
 
-    { key: 'touched by _____', value: 'cTouchedBy' },
+    { key: 'touched by', value: 'cTouchedBy' },
     { key: 'sweaty hands', value: 'cSweatyHands' },
     { key: 'crying spells', value: 'cCryingSpells' },
     { key: 'feeling hot', value: 'cFeelingHot' },
     { key: 'wobbliness in legs', value: 'cWobbliness' },
-    { key: '__________', value: 'cBlank02' },
 
     { key: 'heart pounding/racing', value: 'cHeartPounding' },
     { key: 'sleepiness', value: 'cSleepiness' },
     { key: 'headaches', value: 'cHeadaches' },
     { key: 'numbness or tingling', value: 'cnumbness' },
     { key: 'numerous responsibilities', value: 'cresponsibilities' },
-    { key: '__________', value: 'cBlank03' },
   ];
 
   const checkboxOptionsMental = [
-    { key: 'Mental', value: '' },
     { key: 'racing thoughts', value: 'cRacingThoughts' },
     { key: 'flashbacks/intrusive thoughts', value: 'cFlashbacks' },
     { key: 'indecisive', value: 'cIndecisive' },
@@ -45,13 +40,9 @@ export default function ThrivPlanForm() {
 
     { key: 'over-analyzing', value: 'cHeartPounding' },
     { key: 'reason away emotions', value: 'cSleepiness' },
-    { key: '__________', value: 'cBlank04' },
-    { key: '__________', value: 'cBlank05' },
-    { key: '__________', value: 'cBlank06' },
   ];
 
   const checkboxOptionsEmotional = [
-    { key: 'Emotional', value: '' },
     { key: 'tired', value: 'cTired' },
     { key: 'fear', value: 'cFear' },
     { key: 'anger', value: 'cAnger' },
@@ -66,13 +57,9 @@ export default function ThrivPlanForm() {
 
     { key: 'fealing of failure', value: 'cFeelingOfFailure' },
     { key: 'guilty', value: 'cGuilty' },
-    { key: '__________', value: 'cBlank07' },
-    { key: '__________', value: 'cBlank08' },
-    { key: '__________', value: 'cBlank09' },
   ];
 
   const checkboxOptionsSpiritual = [
-    { key: 'Spiritual', value: '' },
     { key: 'disconnected', value: 'cDisconnected' },
     { key: 'ungrounded', value: 'cUngrounded' },
     { key: 'spacey', value: 'cSpacey' },
@@ -81,14 +68,12 @@ export default function ThrivPlanForm() {
       value: 'cReductionOfLovedActivities',
     },
     { key: 'sabotaging thoughts', value: 'cSabotagingThoughts' },
-    { key: '__________', value: 'cBlank10' },
 
     { key: 'being the victim', value: 'cBeingTheVictim' },
     { key: 'detached', value: 'cDetached' },
     { key: 'distracted', value: 'cDistracted' },
     { key: 'dissociated', value: 'cDissociated' },
     { key: 'loneliness', value: 'cLoneliness' },
-    { key: '__________', value: 'cBlank11' },
 
     { key: 'isolation', value: 'cIsolation' },
     { key: 'self-abuse', value: 'cSelfAbuse' },
@@ -98,11 +83,9 @@ export default function ThrivPlanForm() {
     },
     { key: 'withdrawn', value: 'cWithdrawn' },
     { key: 'injustice', value: 'cInjustice' },
-    { key: '__________', value: 'cBlank12' },
   ];
 
   const checkboxOptionsCopingSkills = [
-    { key: 'Coping Skills', value: '' },
     { key: 'deep belly breathing', value: 'cDeapBellyBreathing' },
     { key: 'gratitude', value: 'cGratitude' },
     { key: 'meditation', value: 'cMeditation' },
@@ -134,7 +117,6 @@ export default function ThrivPlanForm() {
     },
     { key: 'journal, writing, poetry', value: 'cJournalWritingPoetry' },
     { key: 'art, dance, coloring, cooking', value: 'cArtDanceColoringCooking' },
-    { key: '__________', value: 'cBlank13' },
   ];
 
   const initialValues = {
@@ -157,45 +139,50 @@ export default function ThrivPlanForm() {
     >
       {(formik) => (
         <div>
-          <p>
-            Emotional Triggers - Any Circumstances that makes you feel
+          <p className='px-2'>
+            <b>Emotional Triggers</b> - Any Circumstances that makes you feel
             uncomfortable. These Triggers cause physical, mental, emotional, and
             spiritual responses that can be overwhelming and disturbing
           </p>
-          <Form>
+          <Form className='px-2'>
             <ThrivPlanControl
               control='checkbox'
               label='Physical'
               name='checkboxOption'
               options={checkboxOptionsPhysical}
             />
-            <Button type='submit'>Next</Button>
-
+            <Button type='submit' className='my-2'>Next</Button>
+          </Form>
+          <Form className='px-2'>
             <ThrivPlanControl
               control='checkbox'
               label='Mental'
               name='checkboxOption'
               options={checkboxOptionsMental}
             />
-            <Button type='submit'>Next</Button>
-
+            <Button type='submit' className='my-2'>Next</Button>
+          </Form>
+          <Form className='px-2'>
             <ThrivPlanControl
               control='checkbox'
               label='Emotional'
               name='checkboxOption'
               options={checkboxOptionsEmotional}
             />
-            <Button type='submit'>Next</Button>
-
+            <Button type='submit' className='my-2'>Next</Button>
+          </Form>
+          <Form className='px-2'>
             <ThrivPlanControl
               control='checkbox'
               label='Spiritual'
               name='checkboxOption'
               options={checkboxOptionsSpiritual}
             />
-            <Button type='submit'>Next</Button>
+            <Button type='submit' className='my-2'>Next</Button>
+          </Form>
+          <Form className='px-2'>
             <p>
-              Coping Skills - Self-loving behavoirs that are healthy, gentle,
+              <b>Coping Skills</b> - Self-loving behavoirs that are healthy, gentle,
               and kind. Activities to be practiced and mastered as tools to use
               as soon as you are at the initial stages of emotions due to an
               emotional trigger.
@@ -207,7 +194,7 @@ export default function ThrivPlanForm() {
               name='checkboxOption'
               options={checkboxOptionsCopingSkills}
             />
-            <Button type='submit'>Next</Button>
+            <Button type='submit' style={{direction: 'rtl'}} className='my-2'>Next</Button>
           </Form>
         </div>
       )}

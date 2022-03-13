@@ -7,8 +7,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const employerService = useMemo(() => new EmployerService(), []);
-
   return (
     <>
       <h1 className='text-center font-face-gm'>THRĪV Plan Login</h1>
@@ -37,7 +35,7 @@ const Login = () => {
             />
           </div>
           <div className='text-center pb-2 font-face-gm'>
-            <Button style={{width: '26rem'}} type='submit'>Login</Button>
+            <Button style={{width: '26rem'}} type='submit' href="/thrivplan">Login</Button>
           </div>
           <p className="forgot-password text-right px-1 pb-1 font-face-gm">
             Forgot <a href="#">password?</a>
