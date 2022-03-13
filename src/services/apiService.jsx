@@ -2,7 +2,7 @@
 //employerService is specifically for utilizing the apiService.getAxiosInstance
 
 // import { API_BASE } from '@env'
-import axios, { AxiosInstance } from 'axios';
+import axios from "axios";
 
 export class ApiService {
   constructor(bearer = undefined) {
