@@ -1,5 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { EmployerService } from '../../services/employerService';
+import { EmployerRequest } from '../../models/employerRequest';
 
 const UserForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -7,6 +9,8 @@ const UserForm = () => {
   const [company, setCompany] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  
+  const employerService = useMemo(() => new EmployerService(), []);
 
   const firstNameChangeHandler = (event) => {
     setFirstName(event.target.value);
@@ -30,6 +34,15 @@ const UserForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    let employerRequest = new EmployerRequest(firstName, lastName, email, phone, company);
+    employerService.register(employerRequest)
+      .then((response) => {
+        console.log(response);
+        //route to the home page
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
