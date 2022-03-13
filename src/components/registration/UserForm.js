@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 
 const UserForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -33,56 +33,63 @@ const UserForm = () => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
-        <label>First Name: </label>
-        <input
-          type='text'
-          value={firstName}
-          onChange={firstNameChangeHandler}
-          name='firstName'
-        />
-      </div>
-      <div>
-        <label>Last Name: </label>
-        <input
-          type='text'
-          value={lastName}
-          onChange={lastNameChangeHandler}
-          name='lastName'
-        />
-      </div>
-      <div>
-        <label>Company: </label>
-        <input
-          type='text'
-          value={company}
-          onChange={companyChangeHandler}
-          name='company'
-        />
-      </div>
-      <div>
-        <label>Email: </label>
-        <input
-          type='text'
-          value={email}
-          onChange={emailChangeHandler}
-          name='email'
-        />
-      </div>
-      <div>
-        <label>Phone: </label>
-        <input
-          type='text'
-          value={phone}
-          onChange={phoneChangeHandler}
-          name='phone'
-        />
-      </div>
-      <div>
-        <Button type='submit'>Submit</Button>
-      </div>
-    </form>
+    <Card className='text-center' style={{ width: '18rem', margin: '0 auto' }}>
+      <form onSubmit={submitHandler}>
+        <div className='form-group'>
+          <label>First Name</label>
+          <input
+            placeholder='Enter first name'
+            type='text'
+            value={firstName}
+            onChange={firstNameChangeHandler}
+            name='firstName'
+          />
+        </div>
+        <div className='pb-4'>
+          <label>Last Name: </label>
+          <br />
+          <input
+            type='text'
+            value={lastName}
+            onChange={lastNameChangeHandler}
+            name='lastName'
+          />
+        </div>
+        <div className='pb-4'>
+          <label>Company: </label>
+          <br />
+          <input
+            type='text'
+            value={company}
+            onChange={companyChangeHandler}
+            name='company'
+          />
+        </div>
+        <div className='pb-4'>
+          <label>Email: </label>
+          <br />
+          <input
+            type='text'
+            value={email}
+            onChange={emailChangeHandler}
+            name='email'
+          />
+        </div>
+        <div className='pb-4'>
+          <label>Phone: </label>
+          <br />
+          <input
+            type='text'
+            value={phone}
+            onChange={phoneChangeHandler}
+            name='phone'
+          />
+        </div>
+        <div>
+          <Button type='submit'>Submit</Button>
+        </div>
+      </form>
+    </Card>
   );
 };
 
