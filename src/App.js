@@ -1,13 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import EmployerRegistrationForm from './components/registration/EmployerRegistrationForm';
+import { BrowserRouter } from "react-router-dom";
+import { RoutesComponent } from './routes/routes';
+import ThrivePlanningNavbar from './components/navbar/ThrivePlanningNavbar';
 
 function App() {
   return (
-    <div>
-      <h1 className='text-center'>Thrive Planning</h1>
-      <EmployerRegistrationForm />
-    </div>
+    <>
+      <ThrivePlanningNavbar />
+      <BrowserRouter children={RoutesComponent} basename={"/"} />
+    </>
   );
 }
 

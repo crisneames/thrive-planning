@@ -1,5 +1,5 @@
 // import { API_BASE } from '@env'
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 
 export class ApiService {
 
