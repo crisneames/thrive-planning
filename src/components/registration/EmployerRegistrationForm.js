@@ -37,6 +37,21 @@ const EmployerRegistrationForm = () => {
     setPhone(event.target.value);
   };
 
+  const companyIdChangeHandler = (event) => {
+    setCompanyId(event.target.value);
+  };
+
+  const companyAdminFirstNameChangeHandler = (event) => {
+    setCompanyAdminFirstName(event.target.value);
+  };
+
+  const companyAdminLastNameChangeHandler = (event) => {
+    setCompanyAdminLastName(event.target.value);
+  };
+
+  const industryChangeHandler = (event) => {
+    setIndustry(event.target.value);
+  };
   const submitHandler = (event) => {
     event.preventDefault();
     let employerRequest = new EmployerRequest(firstName, lastName, email, phone, company);
@@ -116,9 +131,9 @@ const EmployerRegistrationForm = () => {
               className='form-control'
               placeholder='Enter Company ID (Employer Tax ID)'
               type='text'
-              value={company}
-              onChange={companyChangeHandler}
-              name='company'
+              value={companyId}
+              onChange={companyIdChangeHandler}
+              name='companyId'
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
@@ -127,9 +142,9 @@ const EmployerRegistrationForm = () => {
               className='form-control'
               placeholder='Enter company admin first name'
               type='text'
-              value={company}
-              onChange={companyChangeHandler}
-              name='company'
+              value={companyAdminFirstName}
+              onChange={companyAdminFirstNameChangeHandler}
+              name='companyAdminFirstName'
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
@@ -138,9 +153,9 @@ const EmployerRegistrationForm = () => {
               className='form-control'
               placeholder='Enter company admin last name'
               type='text'
-              value={company}
-              onChange={companyChangeHandler}
-              name='company'
+              value={companyAdminLastName}
+              onChange={companyAdminLastNameChangeHandler}
+              name='companyAdminLastName'
             />
           </div>
           <div className='form-group pb-4 px-2 font-face-gm'>
