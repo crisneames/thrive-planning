@@ -1,18 +1,18 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
-import ThrivPlanControl from './ThrivPlanControl';
-import { Button } from 'react-bootstrap';
+import StepWizard from "react-step-wizard";
+import EmotionalExcerpt from './EmotionalExcerpt';
+import WizardStep from './WizardStep';
+import CopingExcerpt from './CopingExcerpt';
 
 export default function ThrivPlanForm() {
   const checkboxOptionsPhysical = [
-    { key: 'smell of', value: 'cSmellOf' },
-    { key: 'taste of', value: 'CTasteOf' },
-    { key: 'seeing', value: 'cSeeing' },
-    { key: 'touching', value: 'cTouching' },
+    { key: 'smell of', value: 'cSmellOf', fillIn: true },
+    { key: 'taste of', value: 'CTasteOf', fillIn: true },
+    { key: 'seeing', value: 'cSeeing', fillIn: true },
+    { key: 'touching', value: 'cTouching', fillIn: true },
     { key: 'dizzy or lightheaded', value: 'cDizzy' },
 
-    { key: 'touched by', value: 'cTouchedBy' },
+    { key: 'touched by', value: 'cTouchedBy', fillIn: true },
     { key: 'sweaty hands', value: 'cSweatyHands' },
     { key: 'crying spells', value: 'cCryingSpells' },
     { key: 'feeling hot', value: 'cFeelingHot' },
@@ -118,86 +118,16 @@ export default function ThrivPlanForm() {
     { key: 'journal, writing, poetry', value: 'cJournalWritingPoetry' },
     { key: 'art, dance, coloring, cooking', value: 'cArtDanceColoringCooking' },
   ];
-
-  const initialValues = {
-    checkboxOption: [],
-  };
-
-  const validationSchema = Yup.object({
-    checkboxOption: Yup.array().required('Required'),
-  });
-
-  const onSubmit = (values) => {
-    console.log('Form data', values);
-    console.log('Saved data', JSON.parse(JSON.stringify(values)));
-  };
+  
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {(formik) => (
-        <div>
-          <p className='px-2'>
-            <b>Emotional Triggers</b> - Any Circumstances that makes you feel
-            uncomfortable. These Triggers cause physical, mental, emotional, and
-            spiritual responses that can be overwhelming and disturbing
-          </p>
-          <Form className='px-2'>
-            <ThrivPlanControl
-              control='checkbox'
-              label='Physical'
-              name='checkboxOption'
-              options={checkboxOptionsPhysical}
-            />
-            <Button type='submit' className='my-2'>Next</Button>
-          </Form>
-          <Form className='px-2'>
-            <ThrivPlanControl
-              control='checkbox'
-              label='Mental'
-              name='checkboxOption'
-              options={checkboxOptionsMental}
-            />
-            <Button type='submit' className='my-2'>Next</Button>
-          </Form>
-          <Form className='px-2'>
-            <ThrivPlanControl
-              control='checkbox'
-              label='Emotional'
-              name='checkboxOption'
-              options={checkboxOptionsEmotional}
-            />
-            <Button type='submit' className='my-2'>Next</Button>
-          </Form>
-          <Form className='px-2'>
-            <ThrivPlanControl
-              control='checkbox'
-              label='Spiritual'
-              name='checkboxOption'
-              options={checkboxOptionsSpiritual}
-            />
-            <Button type='submit' className='my-2'>Next</Button>
-          </Form>
-          <Form className='px-2'>
-            <p>
-              <b>Coping Skills</b> - Self-loving behavoirs that are healthy, gentle,
-              and kind. Activities to be practiced and mastered as tools to use
-              as soon as you are at the initial stages of emotions due to an
-              emotional trigger.
-            </p>
-            <br />
-            <ThrivPlanControl
-              control='checkbox'
-              label='CopingSkills'
-              name='checkboxOption'
-              options={checkboxOptionsCopingSkills}
-            />
-            <Button type='submit' style={{direction: 'rtl'}} className='my-2'>Next</Button>
-          </Form>
-        </div>
-      )}
-    </Formik>
+    <div>
+      <StepWizard>
+        <WizardStep excerpt={<EmotionalExcerpt />} label='Physical' options={checkboxOptionsPhysical} />
+        <WizardStep excerpt={<EmotionalExcerpt />} label='Mental' options={checkboxOptionsMental} />
+        <WizardStep excerpt={<EmotionalExcerpt />} label='Emotional' options={checkboxOptionsEmotional} />
+        <WizardStep excerpt={<EmotionalExcerpt />} label='Spiritual' options={checkboxOptionsSpiritual} />
+        <WizardStep excerpt={<CopingExcerpt />} label='Coping Skills' options={checkboxOptionsCopingSkills} />
+      </StepWizard>
+    </div>
   );
 }
