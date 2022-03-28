@@ -1,7 +1,5 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { EmployerService } from '../../services/employerService';
-import { EmployerRequest } from '../../models/employerRequest';
 
 const Login = () => {
   const [username, setUsername] = useState('');
