@@ -1,20 +1,20 @@
 import React, { useMemo, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { EmployeeService } from '../../services/employerService';
+import { EmployerService } from '../../services/employerService';
 import { EmployeeRequest } from '../../models/employerRequest';
 import CompanyTypesSelect from '../CompanyTypesSelect';
 
-const NewEmployeeSignUpForm = () => {
+const EmployerSignUpForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [company, setCompany] = useState('');
+
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [reEnterPassword, setReEnterPassword] = useState('');
 
-  const employeeService = useMemo(() => new EmployeeService(), []);
+  const employerService = useMemo(() => new EmployerService(), []);
 
   const firstNameChangeHandler = (event) => {
     setFirstName(event.target.value);
@@ -24,9 +24,9 @@ const NewEmployeeSignUpForm = () => {
     setLastName(event.target.value);
   };
 
-  const companyChangeHandler = (event) => {
-    setCompany(event.target.value);
-  };
+  // const companyChangeHandler = (event) => {
+  //   setCompany(event.target.value);
+  // };
 
   const emailChangeHandler = (event) => {
     setEmail(event.target.value);
@@ -48,25 +48,28 @@ const NewEmployeeSignUpForm = () => {
     setReEnterPassword(event.target.value);
   };
 
-  const submitHandler = (event) => {};
-  //    event.preventDefault();
-  //     let employeeRequest = new EmployeeRequest(
-  //       firstName,
-  //       lastName,
-  //       email,
-  //       phone,
-  //       company
-  //     );
-  //     employeeService
-  //       .register(employeeRequest)
-  //       .then((response) => {
-  //         console.log(response);
-  //         //route to the home page
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    //TODO: password check to see if it matches what was entered
+    let employerSignUpRequest = new EmployerSignUpRequest(
+      firstName,
+      lastName,
+      email,
+      phone,
+      userName,
+      password
+    );
+    employerService
+      .signup(employerSignUpRequest)
+      .then((response) => {
+        console.log(response); //
+        //route to the home page
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -186,4 +189,4 @@ const NewEmployeeSignUpForm = () => {
   );
 };
 
-export default NewEmployeeSignUpForm;
+export default EmployerSignUpForm;
