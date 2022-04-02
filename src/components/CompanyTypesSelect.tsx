@@ -1,7 +1,10 @@
-import React, { useMemo, useState } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { ChangeEventHandler } from 'react';
 
-const CompanyTypesSelect = (onHandleChange) => {
+type Props = {
+  onHandleChange: ChangeEventHandler<HTMLSelectElement>
+}
+
+const CompanyTypesSelect = ({ onHandleChange }: Props) => {
 
   return (
     <select 
