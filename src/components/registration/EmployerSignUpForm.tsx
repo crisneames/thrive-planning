@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useMemo, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { EmployerService } from '../../services/employerService';
 import { EmployerSignUpRequest } from '../../models/employerSignUpRequest';
@@ -15,35 +15,37 @@ const EmployerSignUpForm = () => {
 
   const employerService = useMemo(() => new EmployerService(), []);
 
-  const firstNameChangeHandler = (event) => {
+  const firstNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setFirstName(event.target.value);
   };
 
-  const lastNameChangeHandler = (event) => {
+  const lastNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setLastName(event.target.value);
   };
 
-  const emailChangeHandler = (event) => {
+  const emailChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
 
-  const phoneChangeHandler = (event) => {
+  const phoneChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setPhone(event.target.value);
   };
 
-  const userNameChangeHandler = (event) => {
+  const userNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
 
-  const passwordChangeHandler = (event) => {
+  const passwordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const reEnterPasswordChangeHandler = (event) => {
+  const reEnterPasswordChangeHandler = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
     setReEnterPassword(event.target.value);
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     //TODO: password check to see if it matches what was entered

@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import LandingPage from '../components/LandingPage';
 import Login from '../components/login/Login';
 import EmployerRegistrationForm from '../components/registration/EmployerRegistrationForm';
+import EmployerSignUpForm from '../components/registration/EmployerSignUpForm';
 import ThrivPlanForm from '../components/thrivplan/ThrivPlanForm';
 import Unauthorized from '../components/Unauthorized';
-import EmployerSignUpForm from '../components/registration/EmployerSignUpForm';
 
 export const RoutesComponent = (
   <Routes>

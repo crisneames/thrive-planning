@@ -6,7 +6,14 @@ export class EmployerSignUpRequest {
   userName;
   password;
 
-  constructor(first_name, last_name, email, phone, user_name, password) {
+  constructor(
+    first_name: string,
+    last_name: string,
+    email: string,
+    phone: string,
+    user_name: string,
+    password: string
+  ) {
     this.firstName = first_name;
     this.lastName = last_name;
     this.email = email;
