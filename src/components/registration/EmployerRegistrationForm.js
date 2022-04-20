@@ -54,8 +54,15 @@ const EmployerRegistrationForm = () => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    let employerRequest = new EmployerRequest(firstName, lastName, email, phone, company);
-    employerService.register(employerRequest)
+    let employerRequest = new EmployerRequest(
+      firstName,
+      lastName,
+      email,
+      phone,
+      company
+    );
+    employerService
+      .register(employerRequest)
       .then((response) => {
         console.log(response);
         //route to the home page
@@ -71,7 +78,9 @@ const EmployerRegistrationForm = () => {
       <Card style={{ width: '30rem', margin: '0 auto' }}>
         <form onSubmit={submitHandler}>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>First Name</b></label>
+            <label>
+              <b>First Name</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter contact first name'
@@ -82,7 +91,9 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>Last Name</b></label>
+            <label>
+              <b>Last Name</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter contact last name'
@@ -93,7 +104,9 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>Email</b></label>
+            <label>
+              <b>Email</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter contact email'
@@ -104,7 +117,9 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>Phone</b></label>
+            <label>
+              <b>Phone</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter contact phone number'
@@ -115,7 +130,9 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>Company Name</b></label>
+            <label>
+              <b>Company Name</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter company name'
@@ -126,7 +143,9 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>Company ID</b></label>
+            <label>
+              <b>Company ID</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter Company ID (Employer Tax ID)'
@@ -137,7 +156,9 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>Company Admin First Name</b></label>
+            <label>
+              <b>Company Admin First Name</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter company admin first name'
@@ -148,7 +169,9 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group px-2 font-face-gm'>
-            <label><b>Company Admin Last Name</b></label>
+            <label>
+              <b>Company Admin Last Name</b>
+            </label>
             <input
               className='form-control'
               placeholder='Enter company admin last name'
@@ -159,12 +182,17 @@ const EmployerRegistrationForm = () => {
             />
           </div>
           <div className='form-group pb-4 px-2 font-face-gm'>
-            <label><b>Industry</b></label>
-            <CompanyTypesSelect onHandleChange={(event) => setIndustry(event.target.value)
-            } />
+            <label>
+              <b>Industry</b>
+            </label>
+            <CompanyTypesSelect
+              onHandleChange={(event) => setIndustry(event.target.value)}
+            />
           </div>
           <div className='text-center pb-2 font-face-gm'>
-            <Button style={{width: '26rem'}} type='submit'>Register</Button>
+            <Button style={{ width: '26rem' }} type='submit'>
+              Register
+            </Button>
           </div>
         </form>
       </Card>

@@ -1,8 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { EmployerService } from '../../services/employerService';
-import { EmployeeRequest } from '../../models/employerRequest';
-import CompanyTypesSelect from '../CompanyTypesSelect';
+import { EmployerSignUpRequest } from '../../models/employerSignUpRequest';
 
 const EmployerSignUpForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -23,10 +22,6 @@ const EmployerSignUpForm = () => {
   const lastNameChangeHandler = (event) => {
     setLastName(event.target.value);
   };
-
-  // const companyChangeHandler = (event) => {
-  //   setCompany(event.target.value);
-  // };
 
   const emailChangeHandler = (event) => {
     setEmail(event.target.value);
@@ -128,19 +123,7 @@ const EmployerSignUpForm = () => {
               name='phone'
             />
           </div>
-          <div className='form-group px-2 font-face-gm'>
-            <label>
-              <b>Company Name</b>
-            </label>
-            <input
-              className='form-control'
-              placeholder='Enter company name'
-              type='text'
-              value={company}
-              onChange={companyChangeHandler}
-              name='company'
-            />
-          </div>
+
           <div className='form-group px-2 font-face-gm'>
             <label>
               <b>User Name</b>

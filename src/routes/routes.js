@@ -4,6 +4,7 @@ import Login from '../components/login/Login';
 import EmployerRegistrationForm from '../components/registration/EmployerRegistrationForm';
 import ThrivPlanForm from '../components/thrivplan/ThrivPlanForm';
 import Unauthorized from '../components/Unauthorized';
+import EmployerSignUpForm from '../components/registration/EmployerSignUpForm';
 
 export const RoutesComponent = (
   <Routes>
@@ -15,5 +16,6 @@ export const RoutesComponent = (
       element={<EmployerRegistrationForm />}
     />
     <Route path='/thrivplan' element={<ThrivPlanForm />} />
+    <Route path='/employer/signup' element={<EmployerSignUpForm />} />
   </Routes>
 );

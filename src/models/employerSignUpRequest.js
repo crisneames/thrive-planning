@@ -1,4 +1,4 @@
-export class EmployerRequest {
+export class EmployerSignUpRequest {
   firstName;
   lastName;
   email;
