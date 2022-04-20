@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { RoutesComponent } from './routes/routes';
 import ThrivePlanningNavbar from './components/navbar/ThrivePlanningNavbar';
-
 function App() {
   return (
     <>
