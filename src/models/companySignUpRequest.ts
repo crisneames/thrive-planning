@@ -1,4 +1,4 @@
-export class EmployerRequest {
+export class CompanySignUpRequest {
   public firstName: string;
   public lastName: string;
   public company: string;

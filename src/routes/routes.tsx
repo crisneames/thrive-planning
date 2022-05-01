@@ -1,21 +1,22 @@
 import { Route, Routes } from 'react-router-dom';
-import LandingPage from '../components/LandingPage';
+import LandingPage from '../components/shared/LandingPage';
 import Login from '../components/login/Login';
-import EmployerRegistrationForm from '../components/registration/EmployerRegistrationForm';
+import CompanySignUpForm from '../components/registration/CompanySignUpForm';
 import EmployerSignUpForm from '../components/registration/EmployerSignUpForm';
 import ThrivPlanForm from '../components/thrivplan/ThrivPlanForm';
-import Unauthorized from '../components/Unauthorized';
+import Unauthorized from '../components/shared/Unauthorized';
+import { CompanySignUpPath, EmployerSignUpPath, LandingPagePath, LoginPath, ThrivePlanPath, UnauthorizedPath } from './paths';
 
 export const RoutesComponent = (
   <Routes>
-    <Route path='/unauthorized' element={<Unauthorized />} />
-    <Route path='/login' element={<Login />} />
-    <Route path='/' element={<LandingPage />} />
+    <Route path={UnauthorizedPath} element={<Unauthorized />} />
+    <Route path={LoginPath} element={<Login />} />
+    <Route path={LandingPagePath} element={<LandingPage />} />
     <Route
-      path='/registration/employer'
-      element={<EmployerRegistrationForm />}
+      path={CompanySignUpPath}
+      element={<CompanySignUpForm />}
     />
-    <Route path='/thrivplan' element={<ThrivPlanForm />} />
-    <Route path='/employer/signup' element={<EmployerSignUpForm />} />
+    <Route path={ThrivePlanPath} element={<ThrivPlanForm />} />
+    <Route path={EmployerSignUpPath} element={<EmployerSignUpForm />} />
   </Routes>
 );
