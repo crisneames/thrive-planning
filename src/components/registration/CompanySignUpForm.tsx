@@ -1,16 +1,17 @@
-import React, {
+import {
   ChangeEvent,
-  ChangeEventHandler,
   FormEvent,
   useMemo,
   useState,
 } from "react";
 import { Button, Card } from "react-bootstrap";
 import { EmployerService } from "../../services/employerService";
-import { EmployerRequest } from "../../models/employerRequest";
-import CompanyTypesSelect from "../CompanyTypesSelect";
+import { CompanySignUpRequest } from "../../models/companySignUpRequest";
+import CompanyTypesSelect from "../shared/CompanyTypesSelect";
+import { useNavigate } from "react-router";
+import { EmployerSignUpPath } from "../../routes/paths";
 
-const EmployerRegistrationForm = () => {
+const CompanySignUpForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [company, setCompany] = useState("");
@@ -20,6 +21,8 @@ const EmployerRegistrationForm = () => {
   const [companyAdminFirstName, setCompanyAdminFirstName] = useState("");
   const [companyAdminLastName, setCompanyAdminLastName] = useState("");
   const [industry, setIndustry] = useState("");
+
+  const navigate = useNavigate();
 
   const employerService = useMemo(() => new EmployerService(), []);
 
@@ -65,7 +68,7 @@ const EmployerRegistrationForm = () => {
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    let employerRequest = new EmployerRequest(
+    let companyRequest = new CompanySignUpRequest(
       firstName,
       lastName,
       company,
@@ -77,13 +80,15 @@ const EmployerRegistrationForm = () => {
       industry
     );
     employerService
-      .register(employerRequest)
+      .registerCompany(companyRequest)
       .then((response) => {
-        console.log(response);
-        //route to the home page
+        console.log(response.data);
+        //route to the Employer sign up page
+        let path: string = EmployerSignUpPath.replace(':companyId', response.data);
+        navigate(path);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -217,4 +222,4 @@ const EmployerRegistrationForm = () => {
   );
 };
 
-export default EmployerRegistrationForm;
+export default CompanySignUpForm;

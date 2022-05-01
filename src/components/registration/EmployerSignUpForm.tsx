@@ -2,6 +2,8 @@ import React, { ChangeEvent, FormEvent, useMemo, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { EmployerService } from '../../services/employerService';
 import { EmployerSignUpRequest } from '../../models/employerSignUpRequest';
+import { useParams } from 'react-router';
+import { NIL as EmptyGuid } from 'uuid';
 
 const EmployerSignUpForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -12,6 +14,10 @@ const EmployerSignUpForm = () => {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [reEnterPassword, setReEnterPassword] = useState('');
+
+  const params = useParams< {companyId: string} >();
+
+  const companyId = params.companyId;
 
   const employerService = useMemo(() => new EmployerService(), []);
 
@@ -55,22 +61,23 @@ const EmployerSignUpForm = () => {
       email,
       phone,
       userName,
-      password
+      password,
+      companyId ?? EmptyGuid
     );
     employerService
       .signup(employerSignUpRequest)
       .then((response) => {
-        console.log(response); //
+        console.log(response);
         //route to the home page
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
   return (
     <>
-      <h1 className='text-center font-face-gm'>New Employee Sign Up</h1>
+      <h1 className='text-center font-face-gm'>Employer Sign Up</h1>
       <Card style={{ width: '30rem', margin: '0 auto' }}>
         <form onSubmit={submitHandler}>
           <div className='form-group px-2 font-face-gm'>
@@ -79,7 +86,7 @@ const EmployerSignUpForm = () => {
             </label>
             <input
               className='form-control'
-              placeholder='Enter contact first name'
+              placeholder='Enter first name'
               type='text'
               value={firstName}
               onChange={firstNameChangeHandler}
@@ -92,7 +99,7 @@ const EmployerSignUpForm = () => {
             </label>
             <input
               className='form-control'
-              placeholder='Enter contact last name'
+              placeholder='Enter last name'
               type='text'
               value={lastName}
               onChange={lastNameChangeHandler}
@@ -105,7 +112,7 @@ const EmployerSignUpForm = () => {
             </label>
             <input
               className='form-control'
-              placeholder='Enter contact email'
+              placeholder='Enter email'
               type='email'
               value={email}
               onChange={emailChangeHandler}
@@ -118,7 +125,7 @@ const EmployerSignUpForm = () => {
             </label>
             <input
               className='form-control'
-              placeholder='Enter contact phone number'
+              placeholder='Enter phone number'
               type='tel'
               value={phone}
               onChange={phoneChangeHandler}
@@ -154,11 +161,11 @@ const EmployerSignUpForm = () => {
           </div>
           <div className='form-group px-2 font-face-gm'>
             <label>
-              <b>Re-enter Password</b>
+              <b>Verify Password</b>
             </label>
             <input
               className='form-control'
-              placeholder='Re-enter password'
+              placeholder='Verify password'
               type='text'
               value={reEnterPassword}
               onChange={reEnterPasswordChangeHandler}

@@ -1,5 +1,5 @@
-import { AxiosInstance } from 'axios';
-import { EmployerRequest } from '../models/employerRequest';
+import { AxiosInstance, AxiosResponse } from 'axios';
+import { CompanySignUpRequest } from '../models/companySignUpRequest';
 import { EmployerSignUpRequest } from '../models/employerSignUpRequest';
 import { ApiService } from './apiService';
 
@@ -15,15 +15,20 @@ export class EmployerService {
   /**
    * Makes a request to the backend to create a company
    *
-   * @param employerRequest
-   * @returns
+   * @param companySignUpRequest
+   * @returns Axios Response containing the created company id
    */
-  public register = (employerRequest: EmployerRequest) => {
-    console.log(employerRequest);
-    return this.http.post('/employer', employerRequest);
+  public registerCompany = (companySignUpRequest: CompanySignUpRequest): Promise<AxiosResponse<string>> => {
+    return this.http.post('/employer', companySignUpRequest);
   };
-  signup = (employerSignUpRequest: EmployerSignUpRequest) => {
-    console.log(employerSignUpRequest);
+
+  /**
+   * Makes a request to the backend to create an employer
+   * 
+   * @param employerSignUpRequest 
+   * @returns 
+   */
+  public signup = (employerSignUpRequest: EmployerSignUpRequest) => {
     return this.http.post('/employer/signup', employerSignUpRequest);
   };
 }

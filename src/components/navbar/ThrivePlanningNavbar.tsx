@@ -1,4 +1,5 @@
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
+import { CompanySignUpPath, LoginPath } from '../../routes/paths';
 
 const ThrivePlanningNavbar = () => {
 
@@ -18,10 +19,10 @@ const ThrivePlanningNavbar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
                     <Nav className="me-auto">
-                        <Nav.Link href="/registration/employer" className='font-face-gm'>Register as Employer?</Nav.Link>
+                        <Nav.Link href={CompanySignUpPath} className='font-face-gm'>Register as Employer?</Nav.Link>
                     </Nav>
-                    <Button href="/registration/employer" className='font-face-gm'>Register as Employer</Button>
-                    <Button href="/login" className='mx-2 font-face-gm'>Get Started</Button>
+                    <Button href={CompanySignUpPath} className='font-face-gm'>Register as Employer</Button>
+                    <Button href={LoginPath} className='mx-2 font-face-gm'>Get Started</Button>
                 </Navbar.Collapse>
                 {/* <Navbar.Collapse className="justify-content-end">
                     // If we get to having user signed in, and needing to sign out, here is a place for it
